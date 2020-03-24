@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: kube-bench-master
+  name: kubebench-master
 spec:
   template:
     spec:
@@ -14,8 +14,8 @@ spec:
           operator: Exists
           effect: NoSchedule
       containers:
-        - name: kube-bench
-          image: aquasec/kube-bench:latest
+        - name: kubebench
+          image: opwdreg.itn.ftgroup/external/kubebench:4.2.0
           command: ["kube-bench", "master"]
           volumeMounts:
             - name: var-lib-etcd
