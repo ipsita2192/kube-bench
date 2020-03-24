@@ -2,14 +2,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: kube-bench-node
+  name: kubebench-node
 spec:
   template:
     spec:
       hostPID: true
       containers:
-        - name: kube-bench
-          image: aquasec/kube-bench:latest
+        - name: kubebench
+          image: opwdreg.itn.ftgroup/external/kubebench:4.2.0
           command: ["kube-bench", "node"]
           volumeMounts:
             - name: var-lib-kubelet
