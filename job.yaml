@@ -2,17 +2,17 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: kubebench
+  name: kube-bench
 spec:
   template:
     metadata:
       labels:
-        app: kubebench
+        app: kube-bench
     spec:
       hostPID: true
       containers:
-        - name: kubebench
-          image: opwdreg.itn.ftgroup/external/kubebench:4.2.0
+        - name: kube-bench
+          image: opwdreg.itn.ftgroup/external/kube-bench:4.2.0
           command: ["kube-bench"]
           volumeMounts:
             - name: var-lib-etcd
